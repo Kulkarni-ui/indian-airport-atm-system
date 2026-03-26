@@ -1,7 +1,37 @@
 # ✈ Agentic AI System for Indian Airport Traffic Management
 ### LangChain · ReAct Agents · FastAPI · Real-Time Dashboard · ML Delay Prediction
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![LangChain](https://img.shields.io/badge/LangChain-0.2.16-green?logo=chainlink)
+![Groq](https://img.shields.io/badge/Groq-LLaMA3.3--70b-orange)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-teal?logo=fastapi)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 ---
+
+## 🖥️ Dashboard Preview
+
+> **Live Web Dashboard** — Real-time flight tracking, weather monitoring, AI agent console
+
+![Dashboard]<img width="1916" height="911" alt="image" src="https://github.com/user-attachments/assets/3490cca2-8673-4fce-906c-ef6402641f39" />)
+
+> **Agent Console** — Natural language queries routed to specialized AI agents
+
+![Agent](<img width="1913" height="904" alt="image" src="https://github.com/user-attachments/assets/47821125-820e-4f7d-9b38-839c6652bbbc" />)
+
+---
+
+## What It Does
+
+This system simulates an **AI-powered Air Traffic Management** system for 5 major Indian airports using 4 specialized **ReAct agents** powered by **Groq LLaMA 3.3-70b**:
+
+- **RunwayAgent** — runway allocation & arrival sequencing
+- **WeatherAgent** — meteorological monitoring & LVP advisories
+- **SchedulingAgent** — delay prediction & ATFM slot management
+- **SupervisorAgent** — system-wide oversight & emergency protocols
+
+---
+
 
 ## System Architecture
 
@@ -180,6 +210,22 @@ Replace `_generate_training_data()` with real DGCA historical data for productio
 
 ---
 
+---
+
+## Tech Stack
+
+| Technology | Usage |
+|-----------|-------|
+| **LangChain 0.2.x** | ReAct agent framework |
+| **Groq + LLaMA 3.3-70b** | LLM for agent reasoning |
+| **FastAPI** | REST API + WebSocket server |
+| **Pydantic v2** | Data validation & schemas |
+| **scikit-learn** | ML delay prediction |
+| **Rich** | Terminal dashboard UI |
+| **Python 3.10+** | Core language |
+
+---
+
 ## Production Extensions
 
 1. **Replace in-memory store** → PostgreSQL + Redis pub/sub for multi-instance state
@@ -199,3 +245,12 @@ Replace `_generate_training_data()` with real DGCA historical data for productio
 - Low Visibility Procedure (LVP) triggers at <1500m visibility
 - Priority sequencing: Emergency > Fuel Critical > Medical > Normal
 - Mumbai runway curfew awareness (14/32 after 23:00 IST)
+
+
+---
+
+## 📄 License
+
+MIT License — free to use and modify.
+
+---
