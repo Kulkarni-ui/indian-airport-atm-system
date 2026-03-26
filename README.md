@@ -63,64 +63,6 @@ This system simulates an **AI-powered Air Traffic Management** system for 5 majo
 │  5 Indian Hub Airports · 30 Simulated Flights · Live WX     │
 └─────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Project Structure
-
-```
-airport_atm/
-├── agents/
-│   └── atm_agents.py        # 4 ReAct agents + ATMAgentSystem dispatcher
-├── tools/
-│   └── atm_tools.py         # 14 LangChain @tool functions
-├── models/
-│   ├── schemas.py           # Pydantic v2 data models
-│   └── delay_predictor.py   # GradientBoosting delay ML model
-├── data/
-│   └── store.py             # In-memory store + seed data (5 Indian airports)
-├── dashboard/
-│   ├── api.py               # FastAPI REST + WebSocket server
-│   └── terminal_dashboard.py# Rich terminal live dashboard
-├── tests/
-│   └── test_system.py       # 25+ pytest unit & integration tests
-├── main.py                  # CLI entry point (demo/api/agent/train)
-├── requirements.txt
-└── .env.example
-```
-
----
-
-## Quick Start
-
-### 1. Install dependencies
-```bash
-cd airport_atm
-pip install -r requirements.txt
-```
-
-### 2. Configure environment
-```bash
-cp .env.example .env
-# Edit .env — add OPENAI_API_KEY for full agent mode
-```
-
-### 3. Run modes
-
-#### Terminal Dashboard (no API key needed)
-```bash
-python main.py demo
-```
-Live Rich terminal showing flights, weather, capacity, alerts — auto-refreshes every 2s.
-
-#### FastAPI Server
-```bash
-python main.py api
-# → http://localhost:8000/docs          (Swagger UI)
-# → http://localhost:8000/dashboard      (Web dashboard)
-# → ws://localhost:8000/ws/live          (WebSocket feed)
-```
-
 #### Interactive ReAct Agent REPL
 ```bash
 python main.py agent
@@ -225,6 +167,63 @@ Replace `_generate_training_data()` with real DGCA historical data for productio
 | **Python 3.10+** | Core language |
 
 ---
+
+---
+
+## Project Structure
+
+```
+airport_atm/
+├── agents/
+│   └── atm_agents.py        # 4 ReAct agents + ATMAgentSystem dispatcher
+├── tools/
+│   └── atm_tools.py         # 14 LangChain @tool functions
+├── models/
+│   ├── schemas.py           # Pydantic v2 data models
+│   └── delay_predictor.py   # GradientBoosting delay ML model
+├── data/
+│   └── store.py             # In-memory store + seed data (5 Indian airports)
+├── dashboard/
+│   ├── api.py               # FastAPI REST + WebSocket server
+│   └── terminal_dashboard.py# Rich terminal live dashboard
+├── tests/
+│   └── test_system.py       # 25+ pytest unit & integration tests
+├── main.py                  # CLI entry point (demo/api/agent/train)
+├── requirements.txt
+└── .env.example
+```
+
+---
+
+## Quick Start
+
+### 1. Install dependencies
+```bash
+cd airport_atm
+pip install -r requirements.txt
+```
+
+### 2. Configure environment
+```bash
+cp .env.example .env
+# Edit .env — add OPENAI_API_KEY for full agent mode
+```
+
+### 3. Run modes
+
+#### Terminal Dashboard (no API key needed)
+```bash
+python main.py demo
+```
+Live Rich terminal showing flights, weather, capacity, alerts — auto-refreshes every 2s.
+
+#### FastAPI Server
+```bash
+python main.py api
+# → http://localhost:8000/docs          (Swagger UI)
+# → http://localhost:8000/dashboard      (Web dashboard)
+# → ws://localhost:8000/ws/live          (WebSocket feed)
+```
 
 ## Production Extensions
 
