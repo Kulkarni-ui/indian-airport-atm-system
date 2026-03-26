@@ -127,8 +127,6 @@ Replace `_generate_training_data()` with real DGCA historical data for productio
 
 ---
 
----
-
 ## Tech Stack
 
 | Technology | Usage |
