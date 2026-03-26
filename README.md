@@ -1,7 +1,37 @@
 # ✈ Agentic AI System for Indian Airport Traffic Management
 ### LangChain · ReAct Agents · FastAPI · Real-Time Dashboard · ML Delay Prediction
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![LangChain](https://img.shields.io/badge/LangChain-0.2.16-green?logo=chainlink)
+![Groq](https://img.shields.io/badge/Groq-LLaMA3.3--70b-orange)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-teal?logo=fastapi)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 ---
+
+## 🖥️ Dashboard Preview
+
+> **Live Web Dashboard** — **Real-time flight tracking, weather monitoring, AI agent console**
+
+<img width="1916" height="911" alt="image" src="https://github.com/user-attachments/assets/3490cca2-8673-4fce-906c-ef6402641f39" />
+
+> **Agent Console** — **Natural language queries routed to specialized AI agents**
+
+<img width="1913" height="904" alt="image" src="https://github.com/user-attachments/assets/47821125-820e-4f7d-9b38-839c6652bbbc" />
+
+---
+
+## What It Does
+
+This system simulates an **AI-powered Air Traffic Management** system for 5 major Indian airports using 4 specialized **ReAct agents** powered by **Groq LLaMA 3.3-70b**:
+
+- **RunwayAgent** — runway allocation & arrival sequencing
+- **WeatherAgent** — meteorological monitoring & LVP advisories
+- **SchedulingAgent** — delay prediction & ATFM slot management
+- **SupervisorAgent** — system-wide oversight & emergency protocols
+
+---
+
 
 ## System Architecture
 
@@ -33,89 +63,6 @@
 │  5 Indian Hub Airports · 30 Simulated Flights · Live WX     │
 └─────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Project Structure
-
-```
-airport_atm/
-├── agents/
-│   └── atm_agents.py        # 4 ReAct agents + ATMAgentSystem dispatcher
-├── tools/
-│   └── atm_tools.py         # 14 LangChain @tool functions
-├── models/
-│   ├── schemas.py           # Pydantic v2 data models
-│   └── delay_predictor.py   # GradientBoosting delay ML model
-├── data/
-│   └── store.py             # In-memory store + seed data (5 Indian airports)
-├── dashboard/
-│   ├── api.py               # FastAPI REST + WebSocket server
-│   └── terminal_dashboard.py# Rich terminal live dashboard
-├── tests/
-│   └── test_system.py       # 25+ pytest unit & integration tests
-├── main.py                  # CLI entry point (demo/api/agent/train)
-├── requirements.txt
-└── .env.example
-```
-
----
-
-## Quick Start
-
-### 1. Install dependencies
-```bash
-cd airport_atm
-pip install -r requirements.txt
-```
-
-### 2. Configure environment
-```bash
-cp .env.example .env
-# Edit .env — add OPENAI_API_KEY for full agent mode
-```
-
-### 3. Run modes
-
-#### Terminal Dashboard (no API key needed)
-```bash
-python main.py demo
-```
-Live Rich terminal showing flights, weather, capacity, alerts — auto-refreshes every 2s.
-
-#### FastAPI Server
-```bash
-python main.py api
-# → http://localhost:8000/docs          (Swagger UI)
-# → http://localhost:8000/dashboard      (Web dashboard)
-# → ws://localhost:8000/ws/live          (WebSocket feed)
-```
-
-#### Interactive ReAct Agent REPL
-```bash
-python main.py agent
-```
-Try these queries:
-```
-ATM> Check weather at all airports and raise alerts for any severe conditions
-ATM> What is the arrival sequence for VIDP right now?
-ATM> List all delayed flights and predict how much worse the delays will get
-ATM> Assign the best available runway at VABB to the highest priority inbound flight
-ATM> Generate a full situational awareness report for the network
-```
-
-#### Train ML Model
-```bash
-python main.py train
-```
-
-### 4. Run tests
-```bash
-pytest tests/ -v
-```
-
----
-
 ## The Four ReAct Agents
 
 | Agent | Responsibility | Tools Available |
@@ -180,6 +127,105 @@ Replace `_generate_training_data()` with real DGCA historical data for productio
 
 ---
 
+---
+
+## Tech Stack
+
+| Technology | Usage |
+|-----------|-------|
+| **LangChain 0.2.x** | ReAct agent framework |
+| **Groq + LLaMA 3.3-70b** | LLM for agent reasoning |
+| **FastAPI** | REST API + WebSocket server |
+| **Pydantic v2** | Data validation & schemas |
+| **scikit-learn** | ML delay prediction |
+| **Rich** | Terminal dashboard UI |
+| **Python 3.10+** | Core language |
+
+---
+
+---
+
+#### Interactive ReAct Agent REPL
+```bash
+python main.py agent
+```
+Try these queries:
+```
+ATM> Check weather at all airports and raise alerts for any severe conditions
+ATM> What is the arrival sequence for VIDP right now?
+ATM> List all delayed flights and predict how much worse the delays will get
+ATM> Assign the best available runway at VABB to the highest priority inbound flight
+ATM> Generate a full situational awareness report for the network
+
+```
+
+#### Train ML Model
+```bash
+python main.py train
+```
+
+### 4. Run tests
+```bash
+pytest tests/ -v
+```
+
+---
+
+## Project Structure
+
+```
+airport_atm/
+├── agents/
+│   └── atm_agents.py        # 4 ReAct agents + ATMAgentSystem dispatcher
+├── tools/
+│   └── atm_tools.py         # 14 LangChain @tool functions
+├── models/
+│   ├── schemas.py           # Pydantic v2 data models
+│   └── delay_predictor.py   # GradientBoosting delay ML model
+├── data/
+│   └── store.py             # In-memory store + seed data (5 Indian airports)
+├── dashboard/
+│   ├── api.py               # FastAPI REST + WebSocket server
+│   └── terminal_dashboard.py# Rich terminal live dashboard
+├── tests/
+│   └── test_system.py       # 25+ pytest unit & integration tests
+├── main.py                  # CLI entry point (demo/api/agent/train)
+├── requirements.txt
+└── .env.example
+```
+
+---
+
+## Quick Start
+
+### 1. Install dependencies
+```bash
+cd airport_atm
+pip install -r requirements.txt
+```
+
+### 2. Configure environment
+```bash
+cp .env.example .env
+# Edit .env — add OPENAI_API_KEY for full agent mode
+```
+
+### 3. Run modes
+
+#### Terminal Dashboard (no API key needed)
+```bash
+python main.py demo
+```
+Live Rich terminal showing flights, weather, capacity, alerts — auto-refreshes every 2s.
+
+#### FastAPI Server
+```bash
+python main.py api
+# → http://localhost:8000/docs          (Swagger UI)
+# → http://localhost:8000/dashboard      (Web dashboard)
+# → ws://localhost:8000/ws/live          (WebSocket feed)
+```
+
 ## Production Extensions
 
 1. **Replace in-memory store** → PostgreSQL + Redis pub/sub for multi-instance state
@@ -199,3 +245,12 @@ Replace `_generate_training_data()` with real DGCA historical data for productio
 - Low Visibility Procedure (LVP) triggers at <1500m visibility
 - Priority sequencing: Emergency > Fuel Critical > Medical > Normal
 - Mumbai runway curfew awareness (14/32 after 23:00 IST)
+
+
+---
+
+## 📄 License
+
+MIT License — free to use and modify.
+
+---
