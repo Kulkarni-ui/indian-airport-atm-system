@@ -13,11 +13,11 @@
 
 > **Live Web Dashboard** — Real-time flight tracking, weather monitoring, AI agent console
 
-![Dashboard]<img width="1916" height="911" alt="image" src="https://github.com/user-attachments/assets/3490cca2-8673-4fce-906c-ef6402641f39" />)
+(<img width="1916" height="911" alt="image" src="https://github.com/user-attachments/assets/3490cca2-8673-4fce-906c-ef6402641f39" />)
 
 > **Agent Console** — Natural language queries routed to specialized AI agents
 
-![Agent](<img width="1913" height="904" alt="image" src="https://github.com/user-attachments/assets/47821125-820e-4f7d-9b38-839c6652bbbc" />)
+(<img width="1913" height="904" alt="image" src="https://github.com/user-attachments/assets/47821125-820e-4f7d-9b38-839c6652bbbc" />)
 
 ---
 
