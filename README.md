@@ -63,6 +63,7 @@ This system simulates an **AI-powered Air Traffic Management** system for 5 majo
 │  5 Indian Hub Airports · 30 Simulated Flights · Live WX     │
 └─────────────────────────────────────────────────────────────┘
 ```
+```
 #### Interactive ReAct Agent REPL
 ```bash
 python main.py agent
@@ -74,6 +75,8 @@ ATM> What is the arrival sequence for VIDP right now?
 ATM> List all delayed flights and predict how much worse the delays will get
 ATM> Assign the best available runway at VABB to the highest priority inbound flight
 ATM> Generate a full situational awareness report for the network
+
+```
 ```
 
 #### Train ML Model
